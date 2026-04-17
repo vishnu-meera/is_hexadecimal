@@ -18,12 +18,12 @@ fn main() {
         process::exit(1);
     }
 
-    let input = &args[1];
+    let input: &String = &args[1];
 
     let is_hex: bool = match input.parse::<u32>() {
         Ok(value) => is_value_hex(value),
         Err(_)=>{
-            if let Some(first_char)= input.chars().next() {
+            if let Some(first_char) = input.chars().next() {
                 is_value_hex(first_char as u32)
             } else {
                 false
